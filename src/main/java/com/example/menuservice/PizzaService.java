@@ -29,11 +29,18 @@ public class PizzaService {
         pizza.setPrice(updated.getPrice());
         pizza.setSize(updated.getSize());
         pizza.setAvailable(updated.isAvailable());
+        pizza.setImageUrl(updated.getImageUrl());
         return pizzaRepository.save(pizza);
     }
 
     public void deletePizza(Long id) {
         pizzaRepository.deleteById(id);
+    }
+
+    public Pizza updatePizzaImage(Long id, String imageUrl) {
+        Pizza pizza = getById(id);
+        pizza.setImageUrl(imageUrl);
+        return pizzaRepository.save(pizza);
     }
 }
 

@@ -1,8 +1,5 @@
 package com.example.menuservice;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,4 +18,8 @@ public class Pizza {
     private double price;
     private String size;
     private boolean available;
+
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private String imageUrl;
 }

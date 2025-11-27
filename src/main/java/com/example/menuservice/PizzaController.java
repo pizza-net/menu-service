@@ -35,4 +35,9 @@ public class PizzaController {
     public void delete(@PathVariable Long id) {
         pizzaService.deletePizza(id);
     }
+
+    @PatchMapping("/{id}/image")
+    public Pizza updateImage(@PathVariable Long id, @RequestBody String imageUrl) {
+        return pizzaService.updatePizzaImage(id, imageUrl);
+    }
 }
